@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASTRIE: Смак, що надихає</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header class="block block-1">
+            <div class="mobile-nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1>PASTRIE: Смак, що надихає</h1>
+        </header>
+
+        <nav id="sideMenu" class="block block-2">
+            <div class="main-menu">
+                <p>НАВІГАЦІЯ</p>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="page2.html">Меню</a></li>
+                    <li><a href="page3.html">Про нас</a></li>
+                    <li><a href="page4.html">Галерея</a></li>
+                    <li><a href="page5.html">Контакти</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="block block-3">
+            <p>Ласкаво просимо до світу вишуканих десертів.</p>
+        </div>
+
+        <main class="block block-4">
+            <h2>Наше мистецтво — ваша насолода</h2>
+            <p>Pastrie — це не просто кондитерська, це простір, де класичні французькі рецепти зустрічаються з сучасним елегантним дизайном.</p>
+        </main>
+
+        <aside class="block block-5">
+            <p>Хіти продажу цього тижня!</p>
+        </aside>
+
+        <div class="block block-6">
+            <p>Умови доставки та самовивозу.</p>
+        </div>
+
+        <footer class="block block-7">
+            <h2>Елегантність у кожному шматочку.</h2>
+        </footer>
+    </div>
+
+    <div class="version-label">Версія: Grid + Mobile Adaptive</div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('open');
+        }
+
+        // Закриття меню при кліку на посилання
+        document.querySelectorAll('.main-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('sideMenu').classList.remove('active');
+                document.querySelector('.mobile-nav-toggle').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

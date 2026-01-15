@@ -1,0 +1,176 @@
+/* БАЗОВІ СТИЛІ ТА GRID (Комп. практикум №2) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-cream: #F5F5DC;
+    --color-brown: #5D4037;
+    --color-taupe: #BFA89E;
+    --color-gold: #D4AF37;
+    --color-white: #FFFFFF;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-white);
+}
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+        "header header header"
+        "left-side top-span top-span"
+        "left-side content right-side"
+        "left-side bottom-center right-side"
+        "footer footer footer";
+}
+
+.block {
+    padding: 20px;
+    border: 1px solid var(--color-brown);
+}
+
+.block-1 {
+    grid-area: header;
+    background-color: var(--color-brown);
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+}
+
+.block-2 {
+    grid-area: left-side;
+    background-color: var(--color-taupe);
+}
+
+.block-3 {
+    grid-area: top-span;
+    background-color: var(--color-cream);
+}
+
+.block-4 {
+    grid-area: content;
+    background-color: var(--color-white);
+}
+
+.block-5 {
+    grid-area: right-side;
+    background-color: var(--color-taupe);
+}
+
+.block-6 {
+    grid-area: bottom-center;
+    background-color: var(--color-cream);
+}
+
+.block-7 {
+    grid-area: footer;
+    background-color: var(--color-brown);
+    color: var(--color-gold);
+    text-align: right;
+}
+
+/* СТИЛІ МЕНЮ */
+.main-menu ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.main-menu li {
+    border-bottom: 1px solid rgba(93,64,55,0.2);
+    padding: 15px 0;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: var(--color-brown);
+    font-weight: bold;
+    display: block;
+}
+
+/* КНОПКА ГАМБУРГЕР (прихована на ПК) */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+    .mobile-nav-toggle span {
+        width: 30px;
+        height: 3px;
+        background: var(--color-gold);
+        transition: 0.3s;
+    }
+
+/* ----------------------------------------------------------- */
+/* АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ (Пункти 4-5) */
+/* ----------------------------------------------------------- */
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "top-span"
+            "content"
+            "bottom-center"
+            "footer";
+    }
+
+    /* Висувна плашка навігації */
+    .block-2 {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Ховаємо зліва */
+        width: 280px;
+        height: 100vh;
+        z-index: 9999;
+        transition: 0.5s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    }
+
+        .block-2.active {
+            left: 0;
+        }
+    /* Показуємо при активації */
+
+    /* Ховаємо менш важливі блоки, щоб не захаращувати екран */
+    .block-5 {
+        display: none;
+    }
+
+    /* Анімація гамбургера в хрестик (опціонально) */
+    .mobile-nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .mobile-nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
+
+.version-label {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: #cedef2;
+    padding: 5px;
+    border: 1px solid #000;
+    z-index: 10000;
+    font-size: 12px;
+}
