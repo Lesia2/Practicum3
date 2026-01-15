@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastrie - Галерея</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="block block-1">
+            <h1>PASTRIE: Смак, що надихає</h1>
+        </div>
+        <div class="block block-2">
+            <nav class="main-menu">
+                <p>НАВІГАЦІЯ</p>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="page2.html">Меню</a></li>
+                    <li><a href="page3.html">Про нас</a></li>
+                    <li><a href="page4.html">Галерея</a></li>
+                    <li><a href="page5.html">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="block block-3"><p>Наше Портфоліо найкращих тортів.</p></div>
+        <div class="block block-4">
+            <h2>Вибір за категоріями (Карта посилань)</h2>
+            <p>Клацніть на ліву частину зображення для Тортів, або на праву для Тістечок:</p>
+
+            <img src="product_diagram.jpg" usemap="#categorymap" alt="Схема категорій продукції" style="max-width: 90%; height: auto; display: block; margin: 15px auto; border: 2px dashed var(--color-brown);">
+
+            <map name="categorymap">
+                <area shape="rect" coords="0,0,500,500" href="page2.html" alt="Торти" title="Перейти до Меню Тортів">
+
+                <area shape="circle" coords="750,250,200" href="page3.html" alt="Тістечка" title="Перейти до Тістечок">
+            </map>
+        </div>
+        <div class="block block-5"><p>Хіти продажу цього тижня!</p></div>
+        <div class="block block-6"><p>Умови доставки та самовивозу. </p></div>
+        <div class="block block-7"><h2>Елегантність у кожному шматочку.</h2></div>
+    </div>
+</body>
+</html>
